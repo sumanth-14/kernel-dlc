@@ -1,4 +1,4 @@
-# AI-DLC: Professional SDLC Orchestrator
+# Kernel-dlc: Professional SDLC Orchestrator
 
 [![License: MIT-0](https://img.shields.io/badge/License-MIT--0-yellow.svg)](https://opensource.org/licenses/MIT-0)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
@@ -7,7 +7,7 @@ A comprehensive framework for orchestrating AI agents to deliver production-grad
 
 ## Overview
 
-AI-DLC is an enterprise-grade system that coordinates specialized AI agents across all phases of software development—from inception through construction to operations. It enforces quality gates, mandatory deliverables, and formal approval workflows to ensure every software delivery meets professional standards.
+Kernel-dlc is an enterprise-grade system that coordinates specialized AI agents across all phases of software development—from inception through construction to operations. It enforces quality gates, mandatory deliverables, and formal approval workflows to ensure every software delivery meets professional standards.
 
 ## Key Features
 
@@ -20,9 +20,9 @@ AI-DLC is an enterprise-grade system that coordinates specialized AI agents acro
 ## Project Structure
 
 ```
-ai-dlc-rules/
+kernel-dlc/
 ├── CLAUDE.md                           # Core framework definition
-├── .aidlc-rule-details/                # Agent-specific rule files
+├── .kernel/                            # Agent-specific rule files
 │   ├── common/                         # Shared processes and standards
 │   │   ├── process-overview.md
 │   │   ├── session-continuity.md
@@ -39,8 +39,9 @@ ai-dlc-rules/
 │   └── operations/                     # Deployment and security phase
 │       ├── security.md
 │       └── devops.md
-└── aidlc-docs/                         # Generated artifacts (created during execution)
-    ├── aidlc-state.md                  # Progress tracker
+├── README.md                           # This file
+└── kernel-docs/                        # Generated artifacts (created during execution)
+    ├── kernel-state.md                 # Progress tracker
     ├── audit.md                        # Audit log
     ├── inception/                      # Phase 1 deliverables
     ├── construction/                   # Phase 2 deliverables
@@ -66,12 +67,12 @@ ai-dlc-rules/
 
 ## Workflow Execution
 
-Start every session by stating your intent with "Using AI-DLC, ...":
+Start every session by stating your intent with "Using Kernel-dlc, ...":
 
 ```
-Using AI-DLC, build a subscription management API
-Using AI-DLC, add OAuth2 login to the existing app
-Using AI-DLC, fix the race condition in the payment queue
+Using Kernel-dlc, build a subscription management API
+Using Kernel-dlc, add OAuth2 login to the existing app
+Using Kernel-dlc, fix the race condition in the payment queue
 ```
 
 The framework will automatically:
@@ -97,7 +98,7 @@ The framework will automatically:
 1. **AI Proposes, Humans Approve**: Never auto-proceed past quality gates
 2. **Documented Artifacts**: Every stage produces documented deliverables
 3. **Ambiguity Resolution**: All uncertainties resolved via Q&A before implementation
-4. **Audit Trail**: Complete audit log maintained (aidlc-docs/audit.md)
+4. **Audit Trail**: Complete audit log maintained (kernel-docs/audit.md)
 5. **Architecture-First**: Code never generated before architecture approval
 6. **TDD Approach**: Tests written alongside code, not after deployment
 7. **Security-First**: Security review runs before any deployment
@@ -106,29 +107,29 @@ The framework will automatically:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/ai-dlc-rules.git
-   cd ai-dlc-rules
+   git clone https://github.com/yourusername/kernel-dlc.git
+   cd kernel-dlc
    ```
 
 2. **Review the framework**:
    - Start with `CLAUDE.md` for the conceptual overview
-   - Read `.aidlc-rule-details/common/process-overview.md` before your first execution
+   - Read `.kernel/common/process-overview.md` before your first execution
 
 3. **Initiate a project**:
    ```
-   Using AI-DLC, [describe your software delivery goal]
+   Using Kernel-dlc, [describe your software delivery goal]
    ```
 
 4. **Follow the workflow**:
-   - Each agent stage will load appropriate rule files
-   - Artifacts will be saved to `aidlc-docs/`
+   - Each agent stage will load appropriate rule files from `.kernel/`
+   - Artifacts will be saved to `kernel-docs/`
    - Approve deliverables at each gate before proceeding
 
 ## Documentation
 
 - **[CLAUDE.md](CLAUDE.md)** - Main framework definition and orchestration rules
-- **[.aidlc-rule-details/](​.aidlc-rule-details/)** - Detailed rules for each agent and phase
-- **aidlc-docs/** - Execution artifacts and audit trail (generated during project runs)
+- **[.kernel/](.kernel/)** - Detailed rules for each agent and phase
+- **kernel-docs/** - Execution artifacts and audit trail (generated during project runs)
 
 ## Requirements
 
