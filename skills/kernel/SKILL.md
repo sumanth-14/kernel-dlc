@@ -1,7 +1,7 @@
 ---
 name: kernel
 description: Agentic delivery runtime. Orchestrates PM, BA, SM, Architect, Developer, QA, Security, and DevOps agents through a 3-phase SDLC (Inception → Construction → Operations) with mandatory deliverables and human approval gates. Activate by starting any request with "Using Kernel, ...".
-version: 1.0.1
+version: 1.0.2
 license: MIT-0
 homepage: https://github.com/sumanth-14/kernel-dlc
 ---
@@ -22,12 +22,12 @@ Also activate when the user asks for "full SDLC", "formal delivery process", "wi
 
 The complete framework is **bundled inside this skill** under the `bundle/` directory. On activation, load these files **from this skill's directory** (not from the user's workspace):
 
-1. **Always first:** `bundle/.kernel/common/process-overview.md`
+1. **Always first:** `bundle/kernel/common/process-overview.md`
 2. **Root orchestrator rules:** `bundle/CLAUDE.md`
-3. **If `<workspace>/.kernel/artifacts/state.md` exists** (user has an in-flight cycle): also load `bundle/.kernel/common/session-continuity.md`
-4. **Before any artifact output:** `bundle/.kernel/common/quality-standards.md`
-5. **Before any audit log write:** `bundle/.kernel/common/audit-format.md`
-6. **Per active agent stage:** the matching file under `bundle/.kernel/inception/`, `bundle/.kernel/construction/`, or `bundle/.kernel/operations/`
+3. **If `<workspace>/.kernel/artifacts/state.md` exists** (user has an in-flight cycle): also load `bundle/kernel/common/session-continuity.md`
+4. **Before any artifact output:** `bundle/kernel/common/quality-standards.md`
+5. **Before any audit log write:** `bundle/kernel/common/audit-format.md`
+6. **Per active agent stage:** the matching file under `bundle/kernel/inception/`, `bundle/kernel/construction/`, or `bundle/kernel/operations/`
 
 ## Where artifacts go
 
@@ -38,13 +38,13 @@ Generated artifacts (PRD, BRD, FRS, HLD, LLD, ADRs, test reports, security repor
 When activated for the first time in a workspace (no `.kernel/artifacts/` directory yet):
 
 1. Create `.kernel/artifacts/` in the workspace root.
-2. Create `.kernel/artifacts/state.md` with the initial state template from `bundle/.kernel/common/process-overview.md`.
+2. Create `.kernel/artifacts/state.md` with the initial state template from `bundle/kernel/common/process-overview.md`.
 3. Create empty `.kernel/artifacts/audit.md`.
 4. Proceed with the phase-01 workflow.
 
 ## Version check
 
-Installed version: `1.0.1`. Before starting a new delivery cycle, optionally check https://github.com/sumanth-14/kernel-dlc/releases for a newer version. Update with:
+Installed version: `1.0.2`. Before starting a new delivery cycle, optionally check https://github.com/sumanth-14/kernel-dlc/releases for a newer version. Update with:
 
 ```
 npx skills add sumanth-14/kernel-dlc --force

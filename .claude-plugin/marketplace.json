@@ -9,7 +9,7 @@
       "name": "kernel",
       "source": "./",
       "description": "Agentic delivery runtime — 3-phase SDLC orchestration with 8 specialist agents and human approval gates.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "development",
       "tags": ["sdlc", "orchestration", "agents", "delivery"]
     }

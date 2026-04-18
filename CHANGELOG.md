@@ -2,6 +2,11 @@
 
 All notable changes to Kernel are documented here. This project follows [Semantic Versioning](https://semver.org/) — **major** = phase-structure change, **minor** = agent-behavior change, **patch** = fixes.
 
+## [1.0.2] — 2026-04-18
+
+### Fixed
+- The `skills` CLI silently filters out dot-prefixed folders during install, so `bundle/.kernel/` in v1.0.1 was dropped and only `CLAUDE.md` made it through. Renamed the bundled rule tree to `bundle/kernel/` (no leading dot) and updated SKILL.md paths. Artifacts in the user's workspace still live at `.kernel/artifacts/` — only the skill's internal bundle path changed.
+
 ## [1.0.1] — 2026-04-18
 
 ### Fixed
