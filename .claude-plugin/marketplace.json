@@ -1,0 +1,17 @@
+{
+  "name": "sumanth-14",
+  "owner": {
+    "name": "sumanth-14",
+    "url": "https://github.com/sumanth-14"
+  },
+  "plugins": [
+    {
+      "name": "kernel",
+      "source": "./",
+      "description": "Agentic delivery runtime — 3-phase SDLC orchestration with 8 specialist agents and human approval gates.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["sdlc", "orchestration", "agents", "delivery"]
+    }
+  ]
+}

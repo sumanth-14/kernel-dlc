@@ -1,0 +1,18 @@
+{
+  "name": "kernel",
+  "version": "1.0.0",
+  "description": "Agentic delivery runtime. Orchestrates PM, BA, SM, Architect, Developer, QA, Security, and DevOps agents through a 3-phase SDLC with mandatory deliverables and human approval gates.",
+  "author": {
+    "name": "sumanth-14",
+    "url": "https://github.com/sumanth-14"
+  },
+  "homepage": "https://github.com/sumanth-14/kernel-dlc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sumanth-14/kernel-dlc.git"
+  },
+  "license": "MIT-0",
+  "keywords": ["sdlc", "orchestration", "agents", "delivery", "kernel"],
+  "skills": ["./skills/kernel"],
+  "commands": "./.claude-plugin/commands"
+}
