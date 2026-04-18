@@ -2,7 +2,7 @@
 # Load this file at the start of EVERY session before any other rule file.
 
 ## SESSION STARTUP CHECKLIST
-1. Check if aidlc-docs/aidlc-state.md exists.
+1. Check if .kernel/artifacts/state.md exists.
    - YES → Offer to resume. Load session-continuity.md.
    - NO  → This is a new project. Begin workspace detection.
 
@@ -10,7 +10,7 @@
 Scan the project root and determine:
   - GREENFIELD: No existing source code. Begin from PM stage.
   - BROWNFIELD: Existing codebase. Load and analyse before requirements.
-    → Produce aidlc-docs/inception/reverse-engineering.md first.
+    → Produce .kernel/artifacts/inception/reverse-engineering.md first.
     → Document: current tech stack, architecture, pain points, dependencies.
 
 ## AGENT HANDOFF PROTOCOL
@@ -21,7 +21,7 @@ When transitioning between agents, always:
   4. Load that agent's rule detail file before generating any output.
 
 Example handoff:
-  "✔ Business Analyst has produced: aidlc-docs/inception/frs.md
+  "✔ Business Analyst has produced: .kernel/artifacts/inception/frs.md
    ▶ Activating: Scrum Master Agent
    Goal: Convert FRS into a structured Bolt Plan with effort estimates."
 
@@ -32,8 +32,8 @@ Present gates exactly like this — never skip or abbreviate:
   │ APPROVAL REQUIRED — [Phase/Stage Name]                  │
   ├─────────────────────────────────────────────────────────┤
   │ Artefacts produced:                                     │
-  │   • [artefact 1] → aidlc-docs/[path]                   │
-  │   • [artefact 2] → aidlc-docs/[path]                   │
+  │   • [artefact 1] → .kernel/artifacts/[path]                   │
+  │   • [artefact 2] → .kernel/artifacts/[path]                   │
   ├─────────────────────────────────────────────────────────┤
   │ To proceed type: APPROVE                                │
   │ To revise type:  REVISE [what to change]                │
@@ -48,7 +48,7 @@ Present gates exactly like this — never skip or abbreviate:
 - Never make silent assumptions.
 
 ## PROGRESS TRACKING
-Update aidlc-docs/aidlc-state.md after every completed stage:
+Update .kernel/artifacts/state.md after every completed stage:
 
   ## Status: [IN PROGRESS | AWAITING APPROVAL | COMPLETE]
   ## Current Phase: [01 Inception | 02 Construction | 03 Operations]

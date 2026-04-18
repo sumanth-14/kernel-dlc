@@ -1,7 +1,7 @@
 # Audit Format Rules
 # Every interaction must be logged. Load before any write to audit.md.
 
-## AUDIT LOG FORMAT (aidlc-docs/audit.md)
+## AUDIT LOG FORMAT (.kernel/artifacts/audit.md)
 
 Each entry follows this exact structure:
 
@@ -12,7 +12,7 @@ Each entry follows this exact structure:
               Architect | Developer | QA Engineer | Security | DevOps]
   **User Input**: "[Complete raw user input — NEVER summarised or paraphrased]"
   **AI Action**: "[What the agent did — e.g. 'Produced FRS v1.0']"
-  **Artefact**: [Path to artefact, e.g. aidlc-docs/inception/frs.md]
+  **Artefact**: [Path to artefact, e.g. .kernel/artifacts/inception/frs.md]
   **Decision**: "[Any decision made, assumption recorded, or gate outcome]"
   ---
 

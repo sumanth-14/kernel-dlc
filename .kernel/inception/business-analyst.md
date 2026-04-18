@@ -25,7 +25,7 @@ Read the approved PRD. Identify gaps by checking these six categories:
 For each gap, ask one clarifying question. Record Q&A in audit.md.
 
 ### Step 2 — Produce the Business Requirements Document (BRD)
-Save to: aidlc-docs/inception/brd.md
+Save to: .kernel/artifacts/inception/brd.md
 
 BRD TEMPLATE:
   # Business Requirements Document (BRD)
@@ -45,7 +45,7 @@ BRD TEMPLATE:
   ## 8. Acceptance Criteria (high level)
 
 ### Step 3 — Produce the Functional Requirements Specification (FRS)
-Save to: aidlc-docs/inception/frs.md
+Save to: .kernel/artifacts/inception/frs.md
 
 FRS TEMPLATE:
   # Functional Requirements Specification (FRS)
@@ -104,7 +104,7 @@ FRS TEMPLATE:
   | Term | Definition |
 
 ### Step 4 — Produce User Stories
-Save to: aidlc-docs/inception/user-stories.md
+Save to: .kernel/artifacts/inception/user-stories.md
 
 USER STORY FORMAT:
   ## Epic: [Epic Name]
@@ -133,8 +133,8 @@ USER STORY FORMAT:
 ## BA → SM HANDOFF
 After FRS and user stories are approved:
   "✔ Business Analyst has produced:
-     - aidlc-docs/inception/brd.md
-     - aidlc-docs/inception/frs.md
-     - aidlc-docs/inception/user-stories.md
+     - .kernel/artifacts/inception/brd.md
+     - .kernel/artifacts/inception/frs.md
+     - .kernel/artifacts/inception/user-stories.md
    ▶ Activating: Scrum Master Agent
    Goal: Organise stories into a structured Bolt Plan with effort and sequencing."

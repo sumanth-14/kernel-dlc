@@ -17,15 +17,15 @@ DevOps stage runs:
 ## DEVOPS WORKFLOW (execute in order)
 
 ### Step 1 — Deployment Plan
-Produce: aidlc-docs/operations/deployment-plan.md
+Produce: .kernel/artifacts/operations/deployment-plan.md
 
 DEPLOYMENT PLAN TEMPLATE:
   # Deployment Plan — [Bolt Name] — [Environment]
   [version header]
 
   ## 1. Pre-Deployment Checklist
-  - [ ] Security clearance confirmed: aidlc-docs/operations/security-report.md
-  - [ ] QA sign-off confirmed: aidlc-docs/construction/test-report.md
+  - [ ] Security clearance confirmed: .kernel/artifacts/operations/security-report.md
+  - [ ] QA sign-off confirmed: .kernel/artifacts/construction/test-report.md
   - [ ] All open CRITICAL/HIGH defects resolved
   - [ ] Database migration scripts tested on staging
   - [ ] Rollback plan documented and tested
@@ -75,7 +75,7 @@ GITHUB ACTIONS EXAMPLE (adapt for GitLab CI / Jenkins / CircleCI):
 
   ```yaml
   # .github/workflows/ci-cd.yml
-  name: AI-DLC CI/CD Pipeline
+  name: Kernel CI/CD Pipeline
 
   on:
     push:
@@ -182,7 +182,7 @@ GITHUB ACTIONS EXAMPLE (adapt for GitLab CI / Jenkins / CircleCI):
   ```
 
 ### Step 3 — Produce the Runbook
-Produce: aidlc-docs/operations/runbook.md
+Produce: .kernel/artifacts/operations/runbook.md
 
 RUNBOOK TEMPLATE:
   # Operational Runbook — [System Name]
@@ -229,10 +229,10 @@ RUNBOOK TEMPLATE:
   │ APPROVAL REQUIRED — Operations Phase Complete               │
   ├─────────────────────────────────────────────────────────────┤
   │ Artefacts produced:                                         │
-  │   • Threat Model  → aidlc-docs/operations/threat-model.md  │
-  │   • Security Rpt  → aidlc-docs/operations/security-report.md│
-  │   • Deploy Plan   → aidlc-docs/operations/deployment-plan.md│
-  │   • Runbook       → aidlc-docs/operations/runbook.md       │
+  │   • Threat Model  → .kernel/artifacts/operations/threat-model.md  │
+  │   • Security Rpt  → .kernel/artifacts/operations/security-report.md│
+  │   • Deploy Plan   → .kernel/artifacts/operations/deployment-plan.md│
+  │   • Runbook       → .kernel/artifacts/operations/runbook.md       │
   │   • CI/CD Pipeline→ .github/workflows/ci-cd.yml            │
   ├─────────────────────────────────────────────────────────────┤
   │ To execute deployment type: DEPLOY                          │

@@ -12,9 +12,9 @@ that your colleagues (human or AI) can maintain without asking you questions.
 Developer stage runs after Architect stage is complete and HLD/LLD are approved.
 
 ## PRE-CODING CHECKLIST (run BEFORE writing any code)
-- [ ] Read aidlc-docs/construction/lld.md fully
-- [ ] Read aidlc-docs/construction/api-contracts.md for current bolt
-- [ ] Read aidlc-docs/inception/frs.md for acceptance criteria
+- [ ] Read .kernel/artifacts/construction/lld.md fully
+- [ ] Read .kernel/artifacts/construction/api-contracts.md for current bolt
+- [ ] Read .kernel/artifacts/inception/frs.md for acceptance criteria
 - [ ] Confirm the tech stack from hld.md matches the project's existing tooling
 - [ ] Identify all files that need to be created or modified
 - [ ] Detect any design gaps — if found, STOP and raise to Architect before coding
@@ -128,7 +128,7 @@ Write tests BEFORE or ALONGSIDE each function — not after:
 
 ### Step 4 — Code Review Self-Checklist
 Before handing off to QA, complete this checklist and record it in:
-  aidlc-docs/construction/code-review-checklist.md
+  .kernel/artifacts/construction/code-review-checklist.md
 
   ## Code Review Checklist — [Bolt Name] — [Date]
 
@@ -163,6 +163,6 @@ Before handing off to QA, complete this checklist and record it in:
 
 ## DEVELOPER → QA HANDOFF
   "✔ Developer has produced code for [Bolt X].
-   Code review checklist: aidlc-docs/construction/code-review-checklist.md
+   Code review checklist: .kernel/artifacts/construction/code-review-checklist.md
    ▶ Activating: QA Engineer Agent
    Goal: Independently verify all acceptance criteria and run the test suite."

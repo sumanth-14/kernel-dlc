@@ -13,10 +13,10 @@ critical or high defects.
 
 ### Step 1 — Test Strategy
 Read:
-  - aidlc-docs/inception/frs.md (acceptance criteria per requirement)
-  - aidlc-docs/inception/user-stories.md (Gherkin acceptance criteria)
-  - aidlc-docs/construction/api-contracts.md (API contract to verify against)
-  - aidlc-docs/construction/code-review-checklist.md (developer's self-assessment)
+  - .kernel/artifacts/inception/frs.md (acceptance criteria per requirement)
+  - .kernel/artifacts/inception/user-stories.md (Gherkin acceptance criteria)
+  - .kernel/artifacts/construction/api-contracts.md (API contract to verify against)
+  - .kernel/artifacts/construction/code-review-checklist.md (developer's self-assessment)
 
 Produce a Test Strategy section at the top of the test report.
 
@@ -41,7 +41,7 @@ Execute all test types and record results.
 | LOW | UI issue, typo, minor UX gap | Fix in backlog. |
 
 ### Step 5 — Produce Test Report
-Save to: aidlc-docs/construction/test-report.md
+Save to: .kernel/artifacts/construction/test-report.md
 
 TEST REPORT TEMPLATE:
   # QA Test Report — [Bolt Name]
@@ -108,7 +108,7 @@ TEST REPORT TEMPLATE:
   | POST /register | 45ms | 120ms | 180ms | < 200ms p95 | ✅ |
 
   ## 7. QA Sign-Off Statement
-  **QA Engineer**: AI-DLC QA Agent
+  **QA Engineer**: Kernel QA Agent
   **Date**: [ISO date]
   **Verdict**: APPROVED | CONDITIONAL | REJECTED
 
@@ -123,12 +123,12 @@ Present the gate after QA report is complete:
   │ APPROVAL REQUIRED — Construction Phase Complete             │
   ├─────────────────────────────────────────────────────────────┤
   │ Artefacts produced:                                         │
-  │   • HLD    → aidlc-docs/construction/hld.md                │
-  │   • LLD    → aidlc-docs/construction/lld.md                │
-  │   • ADRs   → aidlc-docs/construction/adr/                  │
-  │   • API    → aidlc-docs/construction/api-contracts.md      │
-  │   • Review → aidlc-docs/construction/code-review-checklist │
-  │   • Tests  → aidlc-docs/construction/test-report.md        │
+  │   • HLD    → .kernel/artifacts/construction/hld.md                │
+  │   • LLD    → .kernel/artifacts/construction/lld.md                │
+  │   • ADRs   → .kernel/artifacts/construction/adr/                  │
+  │   • API    → .kernel/artifacts/construction/api-contracts.md      │
+  │   • Review → .kernel/artifacts/construction/code-review-checklist │
+  │   • Tests  → .kernel/artifacts/construction/test-report.md        │
   ├─────────────────────────────────────────────────────────────┤
   │ QA Verdict: [APPROVED / CONDITIONAL / REJECTED]             │
   │ Open Defects: [count by severity]                           │

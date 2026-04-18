@@ -18,9 +18,9 @@ Architect stage runs:
 
 ### Step 1 — Analyse Requirements
 Read:
-  - aidlc-docs/inception/frs.md         (functional requirements)
-  - aidlc-docs/inception/bolt-plan.md   (current bolt scope)
-  - Existing aidlc-docs/construction/hld.md (if brownfield/continuation)
+  - .kernel/artifacts/inception/frs.md         (functional requirements)
+  - .kernel/artifacts/inception/bolt-plan.md   (current bolt scope)
+  - Existing .kernel/artifacts/construction/hld.md (if brownfield/continuation)
 
 Identify:
   - System components required
@@ -29,7 +29,7 @@ Identify:
   - NFR constraints (performance, scale, security, availability)
 
 ### Step 2 — Produce High-Level Design (HLD)
-Save to: aidlc-docs/construction/hld.md
+Save to: .kernel/artifacts/construction/hld.md
 
 HLD TEMPLATE:
   # High-Level Design (HLD)
@@ -98,7 +98,7 @@ HLD TEMPLATE:
 
 ### Step 3 — Produce Architecture Decision Records (ADRs)
 For each significant decision, create a file:
-  aidlc-docs/construction/adr/ADR-001-[topic].md
+  .kernel/artifacts/construction/adr/ADR-001-[topic].md
 
 ADR TEMPLATE:
   # ADR-001: [Decision Title]
@@ -125,7 +125,7 @@ ADR TEMPLATE:
   - Risks: [what could go wrong]
 
 ### Step 4 — Produce Low-Level Design (LLD)
-Save to: aidlc-docs/construction/lld.md
+Save to: .kernel/artifacts/construction/lld.md
 
 LLD TEMPLATE:
   # Low-Level Design (LLD)
@@ -206,14 +206,14 @@ LLD TEMPLATE:
   | E007 | 500         | Internal server error| "Something went wrong"|
 
 ### Step 5 — Produce API Contracts File
-Save to: aidlc-docs/construction/api-contracts.md
+Save to: .kernel/artifacts/construction/api-contracts.md
 Full OpenAPI 3.0 YAML for all endpoints in current bolt scope.
 
 ## ARCHITECT → DEVELOPER HANDOFF
   "✔ Architect has produced:
-     - aidlc-docs/construction/hld.md
-     - aidlc-docs/construction/lld.md
-     - aidlc-docs/construction/adr/ (ADRs)
-     - aidlc-docs/construction/api-contracts.md
+     - .kernel/artifacts/construction/hld.md
+     - .kernel/artifacts/construction/lld.md
+     - .kernel/artifacts/construction/adr/ (ADRs)
+     - .kernel/artifacts/construction/api-contracts.md
    ▶ Activating: Developer Agent
    Goal: Implement [Bolt X] per the approved LLD and API contracts."

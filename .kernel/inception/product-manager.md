@@ -34,7 +34,7 @@ For new products, briefly document:
   - Differentiating value proposition
 
 ### Step 3 — Produce the PRD
-Save to: aidlc-docs/inception/prd.md
+Save to: .kernel/artifacts/inception/prd.md
 
 PRD TEMPLATE:
   # Product Requirements Document (PRD)
@@ -84,6 +84,6 @@ PRD TEMPLATE:
 
 ## PM → BA HANDOFF
 After PRD is approved:
-  "✔ Product Manager has produced: aidlc-docs/inception/prd.md
+  "✔ Product Manager has produced: .kernel/artifacts/inception/prd.md
    ▶ Activating: Business Analyst Agent
    Goal: Translate PRD into detailed functional and non-functional requirements."

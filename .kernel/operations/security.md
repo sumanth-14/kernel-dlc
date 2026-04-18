@@ -17,7 +17,7 @@ Security Agent runs:
 ## SECURITY WORKFLOW (execute in order)
 
 ### Step 1 — Threat Model (STRIDE)
-Produce: aidlc-docs/operations/threat-model.md
+Produce: .kernel/artifacts/operations/threat-model.md
 
 STRIDE analysis for each system component:
   | Component | Threat Type    | Threat Description                   | Mitigation              | Residual Risk |
@@ -107,7 +107,7 @@ Based on the project's stated compliance requirements (from FRS NFR section):
   - [ ] PCI SAQ completed or in progress
 
 ### Step 6 — Produce Security Report
-Save to: aidlc-docs/operations/security-report.md
+Save to: .kernel/artifacts/operations/security-report.md
 
 SECURITY REPORT TEMPLATE:
   # Security Audit Report — [Bolt Name]
