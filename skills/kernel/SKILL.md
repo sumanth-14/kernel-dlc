@@ -1,14 +1,14 @@
 ---
 name: kernel
 description: Agentic delivery runtime. Orchestrates PM, BA, SM, Architect, Developer, QA, Security, and DevOps agents through a 3-phase SDLC (Inception → Construction → Operations) with mandatory deliverables and human approval gates. Activate by starting any request with "Using Kernel, ...".
-version: 1.0.0
+version: 1.0.1
 license: MIT-0
 homepage: https://github.com/sumanth-14/kernel-dlc
 ---
 
 # Kernel — Agentic delivery runtime
 
-## When to use this skill
+## When to activate
 
 Activate whenever the user prefixes a request with **"Using Kernel, ..."** — for example:
 
@@ -20,42 +20,39 @@ Also activate when the user asks for "full SDLC", "formal delivery process", "wi
 
 ## How to load the framework
 
-On activation, load these files **from the user's workspace** (not from this skill directory):
+The complete framework is **bundled inside this skill** under the `bundle/` directory. On activation, load these files **from this skill's directory** (not from the user's workspace):
 
-1. **Always first:** `.kernel/common/process-overview.md`
-2. **If `.kernel/artifacts/state.md` exists:** `.kernel/common/session-continuity.md`
-3. **Before any artifact output:** `.kernel/common/quality-standards.md`
-4. **Before any audit log write:** `.kernel/common/audit-format.md`
-5. **Per active agent stage:** the matching file under `.kernel/inception/`, `.kernel/construction/`, or `.kernel/operations/`
-6. **Root orchestrator rules:** `CLAUDE.md`
+1. **Always first:** `bundle/.kernel/common/process-overview.md`
+2. **Root orchestrator rules:** `bundle/CLAUDE.md`
+3. **If `<workspace>/.kernel/artifacts/state.md` exists** (user has an in-flight cycle): also load `bundle/.kernel/common/session-continuity.md`
+4. **Before any artifact output:** `bundle/.kernel/common/quality-standards.md`
+5. **Before any audit log write:** `bundle/.kernel/common/audit-format.md`
+6. **Per active agent stage:** the matching file under `bundle/.kernel/inception/`, `bundle/.kernel/construction/`, or `bundle/.kernel/operations/`
 
-## If the framework is not installed in the workspace
+## Where artifacts go
 
-If `.kernel/` does not exist in the current workspace, tell the user:
+Generated artifacts (PRD, BRD, FRS, HLD, LLD, ADRs, test reports, security reports, state, audit log) are written to **the user's workspace** at `.kernel/artifacts/`. Create this directory on first activation if it doesn't exist. Never write artifacts back into the skill's `bundle/` directory — that's read-only framework code.
 
-> Kernel framework files are not present in this project. Install them with:
-> ```
-> npx skills add sumanth-14/kernel-dlc
-> ```
-> Or clone directly:
-> ```
-> git clone https://github.com/sumanth-14/kernel-dlc.git .kernel-source
-> cp -r .kernel-source/.kernel .kernel-source/CLAUDE.md ./
-> ```
+## First-run setup
 
-Do not attempt to proceed without the rule files loaded.
+When activated for the first time in a workspace (no `.kernel/artifacts/` directory yet):
+
+1. Create `.kernel/artifacts/` in the workspace root.
+2. Create `.kernel/artifacts/state.md` with the initial state template from `bundle/.kernel/common/process-overview.md`.
+3. Create empty `.kernel/artifacts/audit.md`.
+4. Proceed with the phase-01 workflow.
 
 ## Version check
 
-The installed version is declared above (`version: 1.0.0`). Before starting a new project cycle, suggest the user check https://github.com/sumanth-14/kernel-dlc/releases for a newer release. If newer exists, they can update with:
+Installed version: `1.0.1`. Before starting a new delivery cycle, optionally check https://github.com/sumanth-14/kernel-dlc/releases for a newer version. Update with:
 
 ```
 npx skills add sumanth-14/kernel-dlc --force
 ```
 
-Do **not** auto-update mid-project — rule changes between versions can invalidate in-flight artifacts. Update at project boundaries only.
+Do **not** auto-update mid-project — rule changes between versions can invalidate in-flight artifacts.
 
-## Core principles (non-negotiable — enforced by `CLAUDE.md`)
+## Core principles (non-negotiable — enforced by `bundle/CLAUDE.md`)
 
 1. AI proposes. Humans approve. Never auto-proceed past a gate.
 2. Every stage produces a documented artifact saved to `.kernel/artifacts/`.
@@ -65,4 +62,4 @@ Do **not** auto-update mid-project — rule changes between versions can invalid
 6. Tests written alongside code — never after deployment.
 7. Security review runs before any deployment, no exceptions.
 
-See `CLAUDE.md` in the installed workspace for the full orchestrator definition.
+See `bundle/CLAUDE.md` for the full orchestrator definition.

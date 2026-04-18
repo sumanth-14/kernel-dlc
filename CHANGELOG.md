@@ -2,6 +2,11 @@
 
 All notable changes to Kernel are documented here. This project follows [Semantic Versioning](https://semver.org/) — **major** = phase-structure change, **minor** = agent-behavior change, **patch** = fixes.
 
+## [1.0.1] — 2026-04-18
+
+### Fixed
+- Skill now self-contains the framework. Previously `npx skills add` installed only the `SKILL.md` stub and expected `CLAUDE.md` + `.kernel/` to already exist in the workspace, leaving new users with an activated-but-unusable skill. The full rule tree is now bundled under `skills/kernel/bundle/` and loaded from there; artifacts still write to `<workspace>/.kernel/artifacts/`.
+
 ## [1.0.0] — 2026-04-17
 
 ### Added

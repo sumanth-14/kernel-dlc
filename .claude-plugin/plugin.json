@@ -1,6 +1,6 @@
 {
   "name": "kernel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Agentic delivery runtime. Orchestrates PM, BA, SM, Architect, Developer, QA, Security, and DevOps agents through a 3-phase SDLC with mandatory deliverables and human approval gates.",
   "author": {
     "name": "sumanth-14",
