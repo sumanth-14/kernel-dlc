@@ -60,6 +60,10 @@ BOLT PLAN TEMPLATE:
   | US-001   | User registration | 3 | Developer Agent |
   | US-003   | Email verification | 2 | Developer Agent |
 
+  Note: UI stories should be assigned to Designer Agent first (for wireframes),
+  then Developer Agent (for implementation). Sequence them as separate sub-tasks
+  within the bolt: Design sub-task → Development sub-task.
+
   **Bolt 01 Acceptance**: [What must be true for this bolt to be "done"]
   **Dependencies**: [Any external blockers]
   **Risk**: [Any risks specific to this bolt]
@@ -72,7 +76,9 @@ BOLT PLAN TEMPLATE:
   - [ ] Acceptance Criteria written in Gherkin format
   - [ ] Story is estimated (story points assigned)
   - [ ] All dependencies identified and resolved
-  - [ ] Design/wireframe available (if UI story)
+  - [ ] For UI stories: wireframe approved and design system tokens confirmed
+  - [ ] For UI stories: all state variants defined (loading, empty, error, success)
+  - [ ] For UI stories: accessibility requirements stated in acceptance criteria
   - [ ] No blockers from external teams
 
   ## Risks & Mitigation Register

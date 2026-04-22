@@ -119,6 +119,27 @@ GITHUB ACTIONS EXAMPLE (adapt for GitLab CI / Jenkins / CircleCI):
         - name: Check coverage threshold
           run: npx jest --coverageThreshold='{"global":{"lines":80}}'
 
+    # Stage 2b: Frontend Build & Performance Gates (add when project has UI)
+    frontend:
+      name: Frontend Build & Performance
+      needs: quality
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with: { node-version: '20' }
+        - run: npm ci
+        - run: npm run build           # Vite / Next.js production build
+        - name: Check bundle size
+          run: npx bundlesize           # Fails if bundle exceeds configured thresholds
+        - name: Lighthouse CI
+          uses: treosh/lighthouse-ci-action@v11
+          with:
+            uploadArtifacts: true
+            temporaryPublicStorage: true
+            # Fail if Core Web Vitals miss targets (configure in lighthouserc.json)
+            # LCP < 2500ms | CLS < 0.1 | INP < 200ms
+
     # Stage 3: Security Scan
     security:
       name: Security Gate
@@ -223,6 +244,16 @@ RUNBOOK TEMPLATE:
   ## 6. Backup & Restore
   **DB Backup**: Automated daily at 02:00 UTC, retained 30 days
   **Restore**: `pg_restore -d mydb /backups/[date].dump`
+
+  ## 7. Frontend Monitoring
+  **Core Web Vitals**: Monitor LCP, CLS, and INP via RUM (Real User Monitoring).
+  Tools: Vercel Analytics / Sentry Performance / Datadog RUM
+  Alert thresholds: LCP > 4s | CLS > 0.25 | INP > 500ms (user-impacting)
+  **CDN & Caching**: Static assets (JS, CSS, images) served from CDN with
+  immutable cache headers (Cache-Control: public, max-age=31536000, immutable).
+  HTML served with Cache-Control: no-cache so deploys take effect immediately.
+  **Error monitoring**: Browser-side JS errors forwarded to Sentry (or equivalent)
+  with source maps uploaded at deploy time.
 
 ## FINAL OPERATIONS GATE
   ┌─────────────────────────────────────────────────────────────┐

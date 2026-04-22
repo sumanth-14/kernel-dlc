@@ -26,6 +26,8 @@ Ask the user to clarify (one question at a time):
   3. What is the measurable success metric? (e.g. reduce churn by 10%)
   4. Are there hard constraints? (budget, deadline, regulatory)
   5. What does "out of scope" look like for this release?
+  6. Does this feature have a user interface? If yes: What platform(s)? (web, mobile, desktop)
+     Are there existing brand guidelines or a design system to follow?
 
 ### Step 2 — Market & Competitive Context (if applicable)
 For new products, briefly document:
@@ -72,14 +74,26 @@ PRD TEMPLATE:
   | Timeline | [e.g. MVP by Q3 2026] |
   | [ASSUMPTION] | [tagged assumptions] |
 
-  ## 7. Dependencies
+  ## 7. UX & Design Requirements
+  **Platform(s)**: [Web / iOS / Android / Desktop — specify all]
+  **Accessibility target**: [WCAG 2.1 AA — unless project explicitly specifies otherwise]
+  **Brand / design system**: [Existing brand guidelines / design system name, or "to be defined by Designer"]
+  **Key UX goals**:
+    - [e.g. Task completion in ≤ 3 steps]
+    - [e.g. Mobile-first experience]
+    - [e.g. Match existing product visual identity]
+  **Known design constraints**:
+    - [e.g. Must use existing component library (Shadcn/MUI/etc.)]
+    - [e.g. Cannot change global navigation structure]
+
+  ## 8. Dependencies
   - [External systems, teams, or services this relies on]
 
-  ## 8. Risks
+  ## 9. Risks
   | Risk | Likelihood | Impact | Mitigation |
   |------|-----------|--------|------------|
 
-  ## 9. Open Questions
+  ## 10. Open Questions
   - [Unresolved items needing stakeholder input]
 
 ## PM → BA HANDOFF

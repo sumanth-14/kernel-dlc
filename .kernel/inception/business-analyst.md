@@ -14,13 +14,16 @@ where business context is already established from the PRD).
 ## BA WORKFLOW (execute in order)
 
 ### Step 1 — Requirements Elicitation
-Read the approved PRD. Identify gaps by checking these six categories:
+Read the approved PRD. Identify gaps by checking these seven categories:
   1. Functional requirements (what the system must DO)
   2. Non-functional requirements (performance, scalability, reliability)
   3. Data requirements (entities, relationships, volumes)
   4. Integration requirements (external systems, APIs, protocols)
   5. Security requirements (auth, authorisation, data protection)
   6. Compliance requirements (GDPR, PCI-DSS, HIPAA, etc.)
+  7. UI/UX requirements (screens needed, user flows, accessibility, platform targets)
+     — For each screen, identify: who accesses it, what they do, what the system responds with.
+     — Flag any flows with branching logic (errors, empty states, permission gates).
 
 For each gap, ask one clarifying question. Record Q&A in audit.md.
 
@@ -71,11 +74,14 @@ FRS TEMPLATE:
   ## 3. Non-Functional Requirements (NFRs)
   | ID      | Category      | Requirement                          | Metric         |
   |---------|---------------|--------------------------------------|----------------|
-  | NFR-001 | Performance   | API response time under normal load  | < 200ms p95    |
-  | NFR-002 | Availability  | System uptime target                 | 99.9% monthly  |
-  | NFR-003 | Scalability   | Concurrent users supported           | 10,000 users   |
-  | NFR-004 | Data Retention| User data retention policy           | 7 years        |
-  | NFR-005 | Security      | Password hashing algorithm           | bcrypt cost=12 |
+  | NFR-001 | Performance     | API response time under normal load   | < 200ms p95    |
+  | NFR-002 | Availability    | System uptime target                  | 99.9% monthly  |
+  | NFR-003 | Scalability     | Concurrent users supported            | 10,000 users   |
+  | NFR-004 | Data Retention  | User data retention policy            | 7 years        |
+  | NFR-005 | Security        | Password hashing algorithm            | bcrypt cost=12 |
+  | NFR-006 | Accessibility   | Minimum accessibility standard        | WCAG 2.1 AA    |
+  | NFR-007 | UI Performance  | Largest Contentful Paint (LCP)        | < 2.5s mobile  |
+  | NFR-008 | Responsiveness  | Supported viewport widths             | 320px – 1536px |
 
   ## 4. User Stories
   (Detailed stories go in user-stories.md — this section cross-references them)

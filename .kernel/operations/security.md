@@ -92,7 +92,41 @@ For each known CVE in dependencies:
   | Package | Current Version | CVE | Severity | Fix Version | Action |
   |---------|----------------|-----|----------|-------------|--------|
 
-### Step 5 — Compliance Check
+### Step 5 — Client-Side Security Review
+(Run this step whenever the bolt contains user-facing UI.)
+
+  CONTENT SECURITY POLICY (CSP)
+  - [ ] CSP header is set (Content-Security-Policy or meta tag as fallback)
+  - [ ] script-src disallows 'unsafe-inline' and 'unsafe-eval' (use nonces or hashes instead)
+  - [ ] No inline event handlers (onclick="...", etc.) in HTML — all handlers in JS files
+  - [ ] Third-party script sources are explicitly allowlisted in CSP
+
+  XSS PREVENTION
+  - [ ] No dangerouslySetInnerHTML (React) or v-html (Vue) used without explicit sanitisation
+  - [ ] User-supplied content rendered as text nodes, never inserted as raw HTML
+  - [ ] URL parameters not reflected into the DOM without encoding
+  - [ ] Error messages shown to users contain no server-side stack traces or raw data
+
+  AUTHENTICATION STORAGE
+  - [ ] JWT access tokens are NOT stored in localStorage or sessionStorage
+  - [ ] Refresh tokens stored in httpOnly, Secure, SameSite=Strict cookies
+  - [ ] Sensitive user data (PII, session IDs) cleared from memory on logout
+
+  THIRD-PARTY DEPENDENCIES (frontend)
+  - [ ] Subresource Integrity (SRI) hashes set on any CDN-loaded scripts or styles
+  - [ ] No un-reviewed third-party scripts loaded (analytics, chat widgets, etc.)
+  - [ ] Third-party iframes use the sandbox attribute with minimum required permissions
+
+  CLICKJACKING & FRAMING
+  - [ ] X-Frame-Options: DENY (or SAMEORIGIN) header set
+  - [ ] CSP frame-ancestors directive set to match the policy above
+
+  SENSITIVE DATA IN FRONTEND
+  - [ ] No API keys, secrets, or credentials embedded in frontend bundle (check .env.public variables)
+  - [ ] Browser DevTools / source maps are disabled in production builds
+  - [ ] No PII logged to browser console
+
+### Step 6 — Compliance Check
 Based on the project's stated compliance requirements (from FRS NFR section):
 
   GDPR (if applicable):
@@ -106,7 +140,7 @@ Based on the project's stated compliance requirements (from FRS NFR section):
   - [ ] All card processing delegated to certified processor (Stripe, etc.)
   - [ ] PCI SAQ completed or in progress
 
-### Step 6 — Produce Security Report
+### Step 7 — Produce Security Report
 Save to: .kernel/artifacts/operations/security-report.md
 
 SECURITY REPORT TEMPLATE:

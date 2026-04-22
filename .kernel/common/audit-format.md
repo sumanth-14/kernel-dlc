@@ -9,7 +9,7 @@ Each entry follows this exact structure:
   ## [Stage Name or Interaction Type]
   **Timestamp**: [ISO 8601 — e.g. 2026-04-10T14:32:00Z]
   **Agent**: [Product Manager | Business Analyst | Scrum Master |
-              Architect | Developer | QA Engineer | Security | DevOps]
+              Architect | Designer | Developer | QA Engineer | Security | DevOps]
   **User Input**: "[Complete raw user input — NEVER summarised or paraphrased]"
   **AI Action**: "[What the agent did — e.g. 'Produced FRS v1.0']"
   **Artefact**: [Path to artefact, e.g. .kernel/artifacts/inception/frs.md]

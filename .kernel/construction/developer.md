@@ -16,8 +16,11 @@ Developer stage runs after Architect stage is complete and HLD/LLD are approved.
 - [ ] Read .kernel/artifacts/construction/api-contracts.md for current bolt
 - [ ] Read .kernel/artifacts/inception/frs.md for acceptance criteria
 - [ ] Confirm the tech stack from hld.md matches the project's existing tooling
+- [ ] For UI work: Read .kernel/artifacts/construction/wireframes.md — every screen in this bolt
+- [ ] For UI work: Read .kernel/artifacts/construction/design-system.md — all tokens and components
 - [ ] Identify all files that need to be created or modified
-- [ ] Detect any design gaps — if found, STOP and raise to Architect before coding
+- [ ] Detect any architecture gaps — if found, STOP and raise to Architect before coding
+- [ ] Detect any design gaps or ambiguities — if found, STOP and raise DESIGN CONFLICT to Designer
 
 ## DEVELOPER WORKFLOW (execute in order)
 
@@ -38,6 +41,8 @@ Before writing code, produce a brief implementation plan:
 
 #### File Structure
 Follow this convention (adjust per stack, but document deviation in CLAUDE.md):
+
+  Backend:
   ```
   src/
   ├── controllers/    ← HTTP request handlers (thin — delegate to services)
@@ -52,6 +57,23 @@ Follow this convention (adjust per stack, but document deviation in CLAUDE.md):
       ├── unit/
       ├── integration/
       └── fixtures/
+  ```
+
+  Frontend (see also hld.md §7 Frontend Architecture for project-specific layout):
+  ```
+  src/
+  ├── components/     ← Reusable UI components (no page-level logic)
+  ├── pages/          ← Route-level components (thin — compose from components)
+  ├── layouts/        ← Page shell wrappers (authenticated, public, etc.)
+  ├── hooks/          ← Custom React/Vue hooks (data fetching, stateful logic)
+  ├── store/          ← Global state slices
+  ├── services/       ← API client functions (all fetch calls live here)
+  ├── styles/         ← Global CSS, CSS variable definitions (design tokens)
+  ├── utils/          ← Pure utility functions (no framework dependencies)
+  └── tests/
+      ├── unit/       ← Component unit tests (React Testing Library)
+      ├── integration/← Page-level tests
+      └── e2e/        ← End-to-end user flows (Playwright)
   ```
 
 #### Code Quality Rules (see quality-standards.md for full list)
@@ -99,6 +121,13 @@ Every public function must have JSDoc (or language-equivalent):
   - Inputs: ALWAYS validate and sanitise before use
   - Secrets: ALWAYS from process.env — never hardcoded
   - Auth: ALWAYS verify JWT on every protected route (middleware)
+
+#### UI Implementation Rules (for frontend work — mandatory)
+  - Design tokens: ALWAYS use CSS variables or design system utilities — never hardcode colours, spacing, or font sizes.
+  - Wireframe fidelity: implement all state variants from wireframes (loading, empty, error, success). Do NOT ship components without all states.
+  - Accessibility: every interactive element must be keyboard-accessible and have appropriate ARIA attributes as specified in wireframes.
+  - Design deviations: if implementation constraints prevent following the wireframe exactly, STOP and raise a DESIGN CONFLICT to the Designer before proceeding.
+  - No inline styles: all styling goes through the agreed styling system (Tailwind classes / CSS Modules / etc.) — no style="" attributes except for dynamic values.
 
 ### Step 3 — Write Tests Alongside Code (TDD preferred)
 
@@ -160,6 +189,13 @@ Before handing off to QA, complete this checklist and record it in:
   - [ ] All public functions documented
   - [ ] README updated if setup steps changed
   - [ ] api-contracts.md matches implementation
+
+  ### UI (if applicable)
+  - [ ] Every screen matches the approved wireframe in wireframes.md
+  - [ ] All design system tokens used — no hardcoded style values
+  - [ ] All state variants implemented (loading, empty, error, success)
+  - [ ] Keyboard navigation works on all interactive elements
+  - [ ] No inline styles except for dynamic computed values
 
 ## DEVELOPER → QA HANDOFF
   "✔ Developer has produced code for [Bolt X].

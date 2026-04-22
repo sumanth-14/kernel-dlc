@@ -21,12 +21,14 @@
 
 ## CONTEXT LOADING ON RESUME
 When resuming Construction phase, always re-read:
-  - .kernel/artifacts/inception/frs.md          (requirements context)
-  - .kernel/artifacts/construction/hld.md       (architecture context)
-  - .kernel/artifacts/construction/lld.md       (if exists)
-  - Current unit's functional-design doc (if in mid-unit)
+  - .kernel/artifacts/inception/frs.md               (requirements context)
+  - .kernel/artifacts/construction/hld.md            (architecture context)
+  - .kernel/artifacts/construction/lld.md            (if exists)
+  - .kernel/artifacts/construction/wireframes.md     (if UI work — design decisions)
+  - .kernel/artifacts/construction/design-system.md  (if UI work — tokens and components)
+  - Current unit's functional-design doc             (if in mid-unit)
 
-This prevents the agent from contradicting earlier decisions.
+This prevents the agent from contradicting earlier architecture or design decisions.
 
 ## BOLT NUMBERING
 Each independent piece of work gets a bolt number:

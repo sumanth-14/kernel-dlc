@@ -37,6 +37,39 @@ Every code output must meet ALL of the following before QA sign-off:
 - [ ] Tests are deterministic — no flaky random seeds without mocking
 - [ ] Test names describe the behaviour being tested (not the method name)
 
+## UI/UX QUALITY STANDARDS
+Every user-facing output must meet ALL of the following before QA sign-off:
+
+### Accessibility (WCAG 2.1 Level AA — non-negotiable)
+- [ ] All text meets contrast ratio ≥ 4.5:1 (normal text) or ≥ 3:1 (large text / UI components)
+- [ ] All interactive elements are keyboard-accessible (Tab, Enter, Space, Escape, arrow keys)
+- [ ] Focus indicator is visible on every interactive element — never hidden or removed
+- [ ] No information is conveyed by colour alone (always paired with text or icon)
+- [ ] All images have appropriate alt text; decorative images have alt=""
+- [ ] All form inputs have an associated visible label (not placeholder-only)
+- [ ] Error messages describe the problem and the fix — not just "Invalid input"
+- [ ] Heading hierarchy is logical (h1 → h2 → h3, no skipped levels)
+- [ ] Page has a unique, descriptive <title> for every screen
+- [ ] No content flashes more than 3 times per second
+
+### Responsive Design
+- [ ] Layout is verified at: 320px, 768px, 1024px, and 1440px viewport widths
+- [ ] No horizontal scrollbar appears at any supported breakpoint (except intentional data tables)
+- [ ] Touch targets on mobile are ≥ 44×44px (WCAG 2.5.5)
+- [ ] Text does not overflow or overlap at any breakpoint
+
+### Visual Consistency
+- [ ] All colours reference design system tokens — no hardcoded hex values in component styles
+- [ ] All spacing uses the design system spacing scale — no arbitrary pixel values
+- [ ] Typography uses design system type tokens — no font-size or font-weight values set ad hoc
+- [ ] All component variants (loading, empty, error, success) are implemented per wireframes
+
+### Frontend Performance (Core Web Vitals targets)
+- [ ] Largest Contentful Paint (LCP): < 2.5s on a simulated mid-range mobile device
+- [ ] Cumulative Layout Shift (CLS): < 0.1 (no unexpected layout jumps)
+- [ ] Interaction to Next Paint (INP): < 200ms
+- [ ] JavaScript bundle size reviewed — no unnecessary large dependencies added without ADR
+
 ## DOCUMENTATION STANDARDS
 Every public function/method must have:
 - Purpose (one sentence)
@@ -60,3 +93,10 @@ A feature is DONE only when ALL are true:
   ✅ No critical or high-severity open defects
   ✅ Human approved at gate
   ✅ Audit log entry written
+
+For features with user-facing UI, additionally:
+  ✅ Implementation matches approved wireframes (no unexplained deviations)
+  ✅ All design system tokens used correctly — no hardcoded style values
+  ✅ All screen state variants implemented (loading, empty, error, success)
+  ✅ WCAG 2.1 AA accessibility verified (automated scan + keyboard walkthrough)
+  ✅ Responsive layout verified at all defined breakpoints

@@ -3,7 +3,7 @@
 
 ## SESSION STARTUP CHECKLIST
 1. Check if .kernel/artifacts/state.md exists.
-   - YES → Offer to resume. Load session-continuity.md.
+   - YES → Offer to resume. Load .kernel/common/session-continuity.md.
    - NO  → This is a new project. Begin workspace detection.
 
 ## WORKSPACE DETECTION
@@ -19,6 +19,11 @@ When transitioning between agents, always:
   2. State which agent is now active.
   3. State what this agent's goal is for this session.
   4. Load that agent's rule detail file before generating any output.
+
+Agent sequence reference:
+  INCEPTION:    PM → BA → SM
+  CONSTRUCTION: Architect → Designer (if UI) → Developer → QA Engineer
+  OPERATIONS:   Security → DevOps
 
 Example handoff:
   "✔ Business Analyst has produced: .kernel/artifacts/inception/frs.md
@@ -60,3 +65,6 @@ Update .kernel/artifacts/state.md after every completed stage:
     - [ ] SM — Bolt Plan (in progress)
   ## Pending:
     - Human approval of Bolt Plan
+
+Stage names for tracking (use exactly these labels):
+  PM | BA | SM | Architect | Designer | Developer | QA Engineer | Security | DevOps
